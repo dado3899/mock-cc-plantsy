@@ -13,7 +13,7 @@ function PlantPage() {
     .then(plants => setplants(plants))
   },[])
   console.log(search)
-
+  //npx kill-port 6001
   function postPlant(plantobj){
     fetch("http://localhost:6001/plants",
       {
@@ -31,9 +31,9 @@ function PlantPage() {
       setplants(newplantsarr)
     })
   }
-
+  //Initially I had toLocaleLowerCase, which is to lowercaseing based on the local language of your machine, the more you know!
   const filteredplants = plants.filter((plant)=>{ 
-    return plant.name.toLowerCase().includes(search.toLocaleLowerCase())
+    return plant.name.toLowerCase().includes(search.toLowerCase())
   })
   return (
     <main>
